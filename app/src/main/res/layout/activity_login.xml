@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+
+    android:layout_height="match_parent"
+    tools:context="com.digicraft.wateradventures.Misc.LoginActivity">
+
+
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+
+    <EditText
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/edit_text_login"
+        android:layout_marginTop="10dp"
+        android:id="@+id/login_email"
+        android:paddingLeft="10dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <EditText
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/edit_text_login"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:id="@+id/login_password"
+        android:paddingLeft="10dp"
+        android:hint="Password"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+
+    <Button
+        android:onClick="LoginClickHandler"
+        android:id="@+id/login_signin_btn"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:text="Sign IN"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+
+    <TextView
+        android:onClick="LoginClickHandler"
+        android:id="@+id/login_forgot_link"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"
+        android:text="Forgot Password?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

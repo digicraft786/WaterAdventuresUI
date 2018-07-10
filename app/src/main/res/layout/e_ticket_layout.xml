@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:elevation="10dp"
+    android:layout_marginBottom="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/activity_name"
+        android:paddingLeft="8dp"
+        android:gravity="center_vertical"
+        android:textSize="18dp"
+        android:textColor="#FFFFFF"
+        android:text="Activity : Seabob Rental"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+
+    <LinearLayout
+        android:id="@+id/reservation"
+       android:padding="16dp"
+        android:layout_below="@id/activity_name"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="15dp"
+            android:textColor="#000000"
+            android:text="Reservation made to:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+
+            android:text="Mustajab Akram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/info_details"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_below="@id/reservation"
+        android:background="#F6F6F6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:drawableLeft="@drawable/ic_location_on_grey_24dp"
+            android:text="Bahia Princpi Akumal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.43"
+                android:textSize="15dp"
+                android:text="25/08/2019"
+                android:drawableLeft="@drawable/ic_date_range_new_24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.3"
+                android:textSize="15dp"
+                android:text="9 : 30 am "
+                android:drawableLeft="@drawable/ic_access_time_grey_24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.3"
+                android:textSize="15dp"
+                android:text="120 min"
+                android:drawableLeft="@drawable/ic_stopwatch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+            android:text="Partcipant : 1 pax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/activity_detail"
+        android:padding="16dp"
+        android:layout_below="@+id/info_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/info_img"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cover"
+            android:layout_width="150dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/info_desc_title"
+            android:paddingLeft="10dp"
+            android:textColor="#000000"
+            android:text="Activity Description"
+            android:layout_toRightOf="@+id/info_img"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/info_desc_detail"
+            android:ellipsize="marquee"
+            android:maxLines="5"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+            android:paddingLeft="10dp"
+            android:layout_below="@id/info_desc_title"
+            android:layout_toRightOf="@+id/info_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/info_desc_detail"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+       <TextView
+           android:textColor="#000000"
+           android:textSize="12dp"
+           android:text="Powered By"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@drawable/logo"
+                android:layout_width="60dp"
+                android:layout_height="25dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="#F5F5F5"
+        android:padding="8dp"
+        android:layout_below="@+id/activity_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingLeft="10dp"
+            android:text="Activity/Tour Operator Please! Scanner this Qr code or use this Code :
+PKHABB2345780q4"
+            android:layout_centerVertical="true"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/qr"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:src="@drawable/scuba_logo"
+        android:layout_margin="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="90dp"
+        android:layout_height="70dp" />
+
+
+</RelativeLayout>

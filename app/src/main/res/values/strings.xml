@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">WaterAdventures</string>
+    <string name="title_activity_sales_main">SalesMainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_summary">SummaryActivity</string>
+    <string name="title_activity_reservation_confirmation">ReservationConfirmationActivity</string>
+    <string name="title_activity_scan_qr">ScanQrActivity</string>
+    <string name="title_activity_sport_detail">SportDetailActivity</string>
+    <string name="title_activity_calender">CalenderActivity</string>
+</resources>

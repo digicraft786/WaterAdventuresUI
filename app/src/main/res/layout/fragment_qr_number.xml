@@ -1,0 +1,66 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.digicraft.wateradventures.QR.QrNumberFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:padding="8dp"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/lbl"
+            android:textColor="#FFFFFF"
+            android:text="Reservation made Under"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:padding="3dp"
+            android:textColor="#FFFFFF"
+            android:layout_below="@+id/lbl"
+            android:text="PKHABB5689043"
+            android:background="@drawable/search_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/filter_icon"
+            android:layout_alignParentRight="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_controls" />
+
+        <ImageButton
+            android:layout_toLeftOf="@+id/filter_icon"
+            android:id="@+id/scanner_icon"
+            android:layout_marginRight="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_qr_code" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include layout="@layout/e_ticket_layout"/>
+
+    </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
