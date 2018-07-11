@@ -45,8 +45,8 @@
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
             android:name=".Sales.SportDetailActivity"
-            android:label="@string/title_activity_sport_detail"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label=""
+            android:theme="@style/DetailAppTheme" />
         <activity
             android:name=".Calender.CalenderActivity"
             android:label="@string/title_activity_calender"

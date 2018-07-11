@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.digicraft.wateradventures.R;
+import com.digicraft.wateradventures.Sales.SportDetailActivity;
 import com.digicraft.wateradventures.Sales.SummaryActivity;
 
 /**
@@ -59,6 +61,7 @@ public class SearchAdapter extends BaseAdapter {
             convertView = view;
         }
 
+        ImageView imageView = convertView.findViewById(R.id.thumbnail);
         TextView someTextView = (TextView) convertView.findViewById(R.id.cross_word);
         someTextView.setText("150USD");
         someTextView.setPaintFlags(someTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -66,9 +69,14 @@ public class SearchAdapter extends BaseAdapter {
         Button bookNow = convertView.findViewById(R.id.bookNow);
         if (flag) {
             bookNow.setVisibility(View.VISIBLE);
-
-
         }
+
+         imageView.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 context.startActivity(new Intent(context , SportDetailActivity.class));
+             }
+         });
 
         bookNow.setOnClickListener(new View.OnClickListener() {
             @Override

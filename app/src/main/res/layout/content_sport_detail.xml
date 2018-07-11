@@ -19,105 +19,54 @@
             android:layout_height="200dp">
 
             <ImageButton
-                android:paddingRight="10dp"
-                android:background="@android:color/transparent"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:elevation="10dp"
-                android:src="@drawable/ic_chevron_right_black_24dp"
                 android:layout_width="40dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:elevation="10dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+
             <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/cover"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/cover" />
 
             <ImageButton
-                android:paddingLeft="10dp"
-                android:background="@android:color/transparent"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:elevation="10dp"
-                android:src="@drawable/ic_chevron_left_black_24dp"
                 android:layout_width="40dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:elevation="10dp"
+                android:paddingLeft="10dp"
+                android:src="@drawable/ic_chevron_left_black_24dp" />
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:background="@color/colorPrimaryDark"
+        <com.github.badoualy.datepicker.DatePickerTimeline
+            android:id="@+id/timeline"
             android:layout_width="match_parent"
-            android:layout_height="60dp"></LinearLayout>
+            android:layout_height="115dp" />
 
-        <TextView
-            android:padding="8dp"
-            android:layout_gravity="right"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/ic_location_on_grey_24dp"
-            android:text="Bahia Principle Akumal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:paddingLeft="8dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:text="Seabob Rental"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <include layout="@layout/detail_info_layout" />
 
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/slider"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="wrap_content"
+           >
 
-            <ImageView
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_person_outline_black_24dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
+            <include layout="@layout/book_now_layout" />
+        </RelativeLayout>
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="5dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_add" />
-
-            <TextView
-                android:textSize="20dp"
-                android:layout_margin="5dp"
-                android:layout_gravity="center_vertical"
-                android:text="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+       <include layout="@layout/detail_description"/>
 
 
-
-            <ImageButton
-                android:layout_margin="5dp"
-                android:layout_gravity="center_vertical"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_minus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <TextView
-                android:textColor="#ff0000"
-                android:textSize="15dp"
-                android:layout_margin="5dp"
-                android:layout_gravity="center_vertical"
-                android:textStyle="italic"
-                android:text="Limmit Reached"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
 
     </LinearLayout>
 

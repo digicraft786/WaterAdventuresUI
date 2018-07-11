@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -20,10 +22,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.digicraft.wateradventures.Adapters.SearchAdapter;
 import com.digicraft.wateradventures.Adapters.SearchSpinnerAdapter;
 import com.digicraft.wateradventures.R;
+import com.digicraft.wateradventures.Sales.SportDetailActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -100,12 +104,28 @@ public class SearchFragment extends Fragment implements DatePickerDialog.OnDateS
 
         SearchAdapter adapter = new SearchAdapter(getActivity());
         listView.setAdapter(adapter);
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                startActivity(new Intent(getActivity() , SportDetailActivity.class));
+                showToast("Item Clicked.");
+                return true;
+            }
+        });
+
         return root;
     }
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
+    }
+
+    public void showToast(String msg)
+    {
+        Toast.makeText(getActivity() , msg ,Toast.LENGTH_SHORT).show();
     }
 
     public static class DatePickerFragment extends DialogFragment
