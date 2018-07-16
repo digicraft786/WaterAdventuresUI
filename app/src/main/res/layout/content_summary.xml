@@ -20,18 +20,22 @@
         <include layout="@layout/summary_layout_billing"/>
 
         <Button
-            android:backgroundTint="@color/colorAccent"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/green_btn"
             android:textColor="#FFFFFF"
             android:layout_marginTop="10dp"
             android:text="Proceed to CheckOut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="340dp"
+            android:layout_height="30dp" />
 
 
         <TextView
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center"
-            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+            android:id="@+id/terms_and_conditions"
+            android:padding="10dp"
+            android:textSize="9dp"
+            android:text="By tapping above and placing order, I agree that I have read and agree to be bound by
+Water Adventure's Terms and Conditions and Privacy Statement."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

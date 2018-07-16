@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:elevation="10dp"
+    android:layout_margin="4dp"
+    card_view:cardCornerRadius="3dp"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <RelativeLayout
     android:background="#FFFFFF"
     android:padding="10dp"
@@ -6,7 +17,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:paddingLeft="8dp"
+        android:paddingLeft="0dp"
         android:id="@+id/product_name"
         android:textStyle="bold"
         android:textColor="@color/colorAccent"
@@ -34,7 +45,7 @@
         android:textAlignment="center"
         android:text="Participants : 1 Pax"
         android:layout_below="@+id/product_location"
-        android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+        android:drawableLeft="@drawable/ic_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -43,8 +54,8 @@
         android:id="@+id/product_duration"
         android:textSize="16dp"
         android:layout_below="@+id/product_participants"
-        android:drawableLeft="@drawable/ic_stopwatch"
-        android:text="Duration : 120 min"
+        android:drawableLeft="@drawable/ic_time"
+        android:text=" Duration : 120 min"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -64,7 +75,7 @@
         android:layout_marginTop="3dp"
         android:textSize="16dp"
         android:layout_below="@+id/product_duration"
-        android:drawableLeft="@drawable/ic_access_time_grey_24dp"
+        android:drawableLeft="@drawable/ic_time_up"
         android:text="Time : 9 : 30 am"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -74,7 +85,9 @@
         android:src="@drawable/cover"
         android:layout_alignParentRight="true"
         android:layout_above="@id/summary_time"
-        android:layout_width="120dp"
-        android:layout_height="100dp" />
+        android:layout_width="140dp"
+        android:layout_height="90dp" />
 
 </RelativeLayout>
+
+</android.support.v7.widget.CardView>
