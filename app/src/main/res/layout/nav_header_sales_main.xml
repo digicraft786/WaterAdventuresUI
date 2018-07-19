@@ -13,6 +13,7 @@
 
 
     <RelativeLayout
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -44,8 +45,9 @@
     <TextView
         android:drawableLeft="@drawable/ic_location_on_grey_24dp"
         android:layout_marginTop="8dp"
-        android:textSize="20dp"
-        android:textColor="#A7A7A7"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:textColor="@color/grey"
         android:text="Location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -59,8 +61,9 @@
     <TextView
         android:drawableLeft="@drawable/ic_location_on_grey_24dp"
         android:layout_marginTop="8dp"
-        android:textSize="20dp"
-        android:textColor="#A7A7A7"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:textColor="@color/grey"
         android:text="Activity Type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -77,8 +80,9 @@
         android:layout_marginTop="8dp"
         android:drawableLeft="@drawable/ic_location_on_grey_24dp"
         android:text="Water Activity"
-        android:textColor="#A7A7A7"
-        android:textSize="20dp" />
+        android:textStyle="bold"
+        android:textColor="@color/grey"
+        android:textSize="15dp" />
 
     <EditText
         android:background="@drawable/search_et"
@@ -87,11 +91,12 @@
         android:layout_height="30dp" />
 
     <TextView
-        android:drawableLeft="@drawable/ic_location_on_grey_24dp"
+        android:drawableLeft="@drawable/ic_time_up"
         android:layout_marginTop="8dp"
-        android:textSize="20dp"
-        android:textColor="#A7A7A7"
-        android:text="Duration"
+        android:textSize="15dp"
+        android:textColor="@color/grey"
+        android:text=" Duration"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -101,12 +106,160 @@
         android:layout_width="match_parent"
         android:layout_height="30dp" />
 
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:drawableLeft="@drawable/ic_date_range_grey_24dp"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"
+            android:textColor="@color/grey"
+            android:text=" Check In"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:drawableLeft="@drawable/ic_time"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"
+            android:textColor="@color/grey"
+            android:text=" "
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/search_et"
+            android:drawableRight="@drawable/ic_arrow_drop_down_grey_24dp"
+            android:layout_width="120dp"
+            android:layout_height="30dp" />
+
+
+        <RelativeLayout
+            android:layout_weight="0.3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:id="@+id/panelOne"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_arrow_drop_up_black_24dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+
+
+                <EditText
+                    android:textAlignment="center"
+                    android:textSize="8dp"
+                    android:textColor="@color/grey"
+                    android:text="12"
+                    android:background="@drawable/search_et"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp" />
+
+
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/panelOne"
+                android:id="@+id/paneltwo"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_arrow_drop_up_black_24dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+
+                <EditText
+                    android:textAlignment="center"
+                    android:textSize="8dp"
+                    android:textColor="@color/grey"
+                    android:text="12"
+                    android:background="@drawable/search_et"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp" />
+
+
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:textSize="8dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/time_box"
+                android:padding="3dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/paneltwo"
+                android:text="PM"
+                android:textColor="@color/grey"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+
     <Button
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/filter_btn"
         android:layout_marginTop="10dp"
         android:text="Refine Search"
         android:backgroundTint="@color/colorAccent"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="40dp" />
 
 
 </LinearLayout>

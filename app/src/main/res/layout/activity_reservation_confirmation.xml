@@ -16,16 +16,18 @@
 
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <TextView
+                android:paddingRight="12dp"
+                android:paddingBottom="12dp"
+                android:drawableRight="@drawable/ic_cancel"
                 android:paddingTop="10dp"
-                android:textSize="23dp"
-                android:textStyle="bold"
+                android:textSize="20dp"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:text="E-Ticket"
+                android:text="eTicket"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

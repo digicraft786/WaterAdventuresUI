@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v7.widget.CardView android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:elevation="10dp"
-    android:layout_marginBottom="20dp"
+    android:layout_margin="4dp"
+    card_view:cardCornerRadius="3dp"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+    android:elevation="10dp"
+    android:layout_marginBottom="0dp"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
 
     <TextView
@@ -27,7 +38,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:textSize="15dp"
+            android:textSize="12dp"
             android:textColor="#000000"
             android:text="Reservation made to:"
             android:layout_width="wrap_content"
@@ -35,6 +46,7 @@
         <TextView
 
             android:text="Mustajab Akram"
+            android:textSize="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -45,13 +57,16 @@
     <LinearLayout
         android:id="@+id/info_details"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="16dp"
         android:layout_below="@id/reservation"
         android:background="#F6F6F6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
+            android:textSize="12dp"
             android:drawableLeft="@drawable/ic_location_on_grey_24dp"
             android:text="Bahia Princpi Akumal"
             android:layout_width="match_parent"
@@ -66,27 +81,27 @@
             <TextView
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.43"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:text="25/08/2019"
-                android:drawableLeft="@drawable/ic_date_range_new_24dp"
+                android:drawableLeft="@drawable/ic_date_range_grey_24dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.3"
-                android:textSize="15dp"
-                android:text="9 : 30 am "
-                android:drawableLeft="@drawable/ic_access_time_grey_24dp"
+                android:textSize="12dp"
+                android:text=" 9 : 30 am "
+                android:drawableLeft="@drawable/ic_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.3"
-                android:textSize="15dp"
-                android:text="120 min"
-                android:drawableLeft="@drawable/ic_stopwatch"
+                android:textSize="12dp"
+                android:text=" 120 min"
+                android:drawableLeft="@drawable/ic_time_up"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
@@ -95,10 +110,10 @@
         </LinearLayout>
 
         <TextView
-            android:textSize="18dp"
+            android:textSize="12dp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="5dp"
-            android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+            android:drawableLeft="@drawable/ic_user"
             android:text="Partcipant : 1 pax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -116,16 +131,17 @@
             android:id="@+id/info_img"
             android:scaleType="centerCrop"
             android:src="@drawable/cover"
-            android:layout_width="150dp"
-            android:layout_height="100dp" />
+            android:layout_width="120dp"
+            android:layout_height="80dp" />
 
         <TextView
             android:id="@+id/info_desc_title"
             android:paddingLeft="10dp"
-            android:textColor="#000000"
+            android:textColor="@color/grey"
             android:text="Activity Description"
             android:layout_toRightOf="@+id/info_img"
-            android:textSize="15dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -133,6 +149,7 @@
             android:id="@+id/info_desc_detail"
             android:ellipsize="marquee"
             android:maxLines="5"
+            android:textSize="11dp"
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
             android:paddingLeft="10dp"
             android:layout_below="@id/info_desc_title"
@@ -158,8 +175,8 @@
             <ImageView
                 android:scaleType="fitXY"
                 android:src="@drawable/logo"
-                android:layout_width="60dp"
-                android:layout_height="25dp" />
+                android:layout_width="90dp"
+                android:layout_height="30dp" />
 
         </LinearLayout>
     </RelativeLayout>
@@ -172,15 +189,22 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:paddingRight="8dp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/qr_img"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:textSize="10dp"
             android:paddingLeft="10dp"
-            android:text="Activity/Tour Operator Please! Scanner this Qr code or use this Code :
-PKHABB2345780q4"
+            android:text="Activity/Tour Operator Please! Scanner this
+            Qr code or use this Code : PKHABB2345780q4"
             android:layout_centerVertical="true"
-            android:layout_width="200dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content" />
 
 
         <ImageView
+            android:id="@+id/qr_img"
             android:scaleType="fitXY"
             android:layout_alignParentRight="true"
             android:src="@drawable/qr"
@@ -202,3 +226,4 @@ PKHABB2345780q4"
 
 
 </RelativeLayout>
+</android.support.v7.widget.CardView>

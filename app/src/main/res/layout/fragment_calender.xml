@@ -28,6 +28,8 @@
             android:src="@drawable/ic_controls_black" />
     </RelativeLayout>
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,6 +44,7 @@
             <include layout="@layout/calender_layout" />
         </RelativeLayout>
 
+
         <RelativeLayout
             android:layout_below="@+id/calender"
             android:layout_width="match_parent"
@@ -49,6 +52,7 @@
 
             <include layout="@layout/detail_calender_layout" />
         </RelativeLayout>
+
 
     </RelativeLayout>
 

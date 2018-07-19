@@ -1,15 +1,20 @@
 package com.digicraft.wateradventures.Sales;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.digicraft.wateradventures.R;
@@ -18,6 +23,8 @@ public class SummaryActivity extends AppCompatActivity {
 
     SpannableStringBuilder ssBuilder;
     TextView termsAndConditions;
+    ImageView payCashBtn, roomChargeBtn, paypalBtn;
+    Button proceed_to_checkout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +36,19 @@ public class SummaryActivity extends AppCompatActivity {
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        proceed_to_checkout = findViewById(R.id.proceed_to_checkout);
+        payCashBtn = findViewById(R.id.payCashBtn);
+        roomChargeBtn = findViewById(R.id.roomChargeBtn);
+        paypalBtn = findViewById(R.id.paypalBtn);
+
         termsAndConditions = findViewById(R.id.terms_and_conditions);
+
+        proceed_to_checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SummaryActivity.this , ReservationConfirmationActivity.class));
+            }
+        });
 
         String text = "By tapping above and placing order, I agree that I have read and agree to be bound by\n" +
                 "Water Adventure's Terms and Conditions and Privacy Statement.";
@@ -60,6 +79,42 @@ public class SummaryActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+
+    public void paymentGatewayHandler(View view) {
+        int id = view.getId();
+
+        paypalBtn.setBackgroundResource(R.drawable.white_border);
+        payCashBtn.setBackgroundResource(R.drawable.white_border);
+        roomChargeBtn.setBackgroundResource(R.drawable.white_border);
+
+        if (id == R.id.paypalBtn) {
+            paypalBtn.setBackgroundResource(R.drawable.blue_border);
+        } else if (id == R.id.payCashBtn) {
+            payCashBtn.setBackgroundResource(R.drawable.blue_border);
+        } else if (id == R.id.roomChargeBtn) {
+            roomChargeBtn.setBackgroundResource(R.drawable.blue_border);
+        }
+    }
+
+
+    public void makeRoomChargeBillingInfo(View view)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        builder.setView(inflater.inflate(R.layout.room_charge_billing_info_layout, null));
+        builder.create();
+        builder.show();
+    }
+
+    public void makeRoomChargeParticipantInfo(View view)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        builder.setView(inflater.inflate(R.layout.room_charge_participant_info_layout, null));
+        builder.create();
+        builder.show();
     }
 
 }

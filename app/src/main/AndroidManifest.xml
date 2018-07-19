@@ -41,17 +41,18 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
 
         <activity
             android:name=".Sales.ReservationConfirmationActivity"
             android:label="@string/title_activity_reservation_confirmation"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+
+
+
+        </activity>
+
+
         <activity
             android:name=".QR.ScanQrActivity"
             android:label="@string/title_activity_scan_qr"
@@ -72,6 +73,12 @@
 
         <activity android:name=".SplashActivity"
             android:theme="@style/LoginAppTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
 
     </application>
