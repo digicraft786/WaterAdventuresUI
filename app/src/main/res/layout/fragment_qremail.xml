@@ -26,12 +26,15 @@
 
 
             <TextView
-                android:padding="3dp"
+                android:textSize="13dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="#FFFFFF"
                 android:layout_below="@+id/lbl"
                 android:text="mustajabakram5@gmail.com"
                 android:background="@drawable/search_result"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <ImageButton
@@ -49,7 +52,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_qr_code" />
+                android:src="@drawable/ic_scanner_white" />
 
         </RelativeLayout>
 

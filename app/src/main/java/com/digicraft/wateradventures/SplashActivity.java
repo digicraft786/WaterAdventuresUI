@@ -8,6 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.digicraft.wateradventures.Sales.SalesMainActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
 
@@ -38,7 +40,7 @@ public class SplashActivity extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                startActivity(new Intent(SplashActivity.this , MenuActivity.class));
+                startActivity(new Intent(SplashActivity.this , SalesMainActivity.class));
                 finish();
             }
         }, 2000);

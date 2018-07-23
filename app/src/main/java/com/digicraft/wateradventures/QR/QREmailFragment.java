@@ -24,10 +24,10 @@ public class QREmailFragment extends Fragment {
     }
 
     Opener filter;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
         filter = (Opener) context;
     }
 

@@ -19,8 +19,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_scan_qr"
-        app:menu="@menu/activity_scan_qr_drawer" />
+        app:headerLayout="@layout/nav_header_sales"
+        app:menu="@menu/activity_sales_main_drawer"
+        app:itemTextColor="@color/grey"
+        app:itemIconTint="@color/grey"
+        />
 
 
     <android.support.design.widget.NavigationView
