@@ -1,5 +1,6 @@
 package com.digicraft.wateradventures.Sales;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,8 +15,10 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.digicraft.wateradventures.R;
 
@@ -30,7 +33,7 @@ public class SummaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -71,7 +74,7 @@ public class SummaryActivity extends AppCompatActivity {
         termsAndConditions.setText(ssBuilder);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,11 +104,46 @@ public class SummaryActivity extends AppCompatActivity {
 
     public void makeRoomChargeBillingInfo(View view)
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.room_charge_billing_info_layout, null));
-        builder.create();
-        builder.show();
+
+        //Inflate the Layout and get root View (formRlementView)
+        LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View formElementsView = inflater.inflate(R.layout.room_charge_billing_info_layout, null, false);
+
+
+        //Get the References of buttons Applicable on all view (EditText , Button , Spinner .. etc)
+        Button cancelBtn = formElementsView.findViewById(R.id.cancelBtn  );
+        Button confirmBtn = formElementsView.findViewById(R.id.confirmBtn);
+
+        //Show the Inflated view in the Dialogue.
+        new AlertDialog.Builder(view.getContext())
+                .setView(formElementsView)
+                .show();
+
+        //Handle Cancel Button Event.
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("Cancel Clicked");
+            }
+        });
+
+        //Handle Confirm Button Event.
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("Confirm Clicked");
+            }
+        });
+
+    }
+
+
+
+
+
+    public void showToast(String msg)
+    {
+        Toast.makeText(this , msg , Toast.LENGTH_SHORT).show();
     }
 
     public void makeRoomChargeParticipantInfo(View view)

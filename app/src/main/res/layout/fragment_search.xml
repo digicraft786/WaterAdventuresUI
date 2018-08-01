@@ -48,7 +48,6 @@
 
 
         <AutoCompleteTextView
-
             android:textSize="15dp"
             android:id="@+id/searchBox"
             android:layout_width="0dp"

@@ -60,6 +60,12 @@ public class SearchFragment extends Fragment implements DatePickerDialog.OnDateS
 
         AutoCompleteTextView searchBox = root.findViewById(R.id.searchBox);
 
+        searchBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                locationDialog(v);
+            }
+        });
         location_picker = root.findViewById(R.id.pick_a_location_tv);
         ImageButton searchBtn = root.findViewById(R.id.searchBtn);
 

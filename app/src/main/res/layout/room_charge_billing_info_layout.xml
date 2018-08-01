@@ -60,6 +60,7 @@
      android:layout_height="60dp">
 
      <Button
+android:id="@+id/cancelBtn"
          android:textColor="@color/colorPrimaryDark"
          android:background="@android:color/transparent"
          android:text="Cancel"
@@ -68,6 +69,7 @@
          android:layout_height="match_parent" />
 
      <Button
+         android:id="@+id/confirmBtn"
          android:textColor="#FFFFFF"
          android:backgroundTint="@color/colorPrimaryDark"
          android:text="Confirm"

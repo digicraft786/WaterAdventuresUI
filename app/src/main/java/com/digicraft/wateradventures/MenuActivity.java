@@ -54,8 +54,6 @@ public class MenuActivity extends AppCompatActivity {
 
     public void makeDialog(View view)
     {
-
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         // Get the layout inflater
         LayoutInflater inflater = getLayoutInflater();
