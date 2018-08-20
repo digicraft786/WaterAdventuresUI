@@ -6,15 +6,17 @@
     android:layout_height="wrap_content">
 
     <TextView
+
         android:textSize="14dp"
-        android:id="@+id/time"
+        android:id="@+id/startTime"
         android:text="7AM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
+        android:id="@+id/duration"
         android:textSize="14dp"
-        android:layout_below="@id/time"
+        android:layout_below="@id/startTime"
         android:text="2HRS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -24,12 +26,13 @@
         android:id="@+id/dot"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/time"
-        android:src="@color/colorAccent"
+        android:layout_toRightOf="@+id/startTime"
+
         android:layout_width="10dp"
         android:layout_height="10dp" />
 
     <TextView
+        android:id="@+id/activityName"
         android:paddingTop="5dp"
         android:paddingLeft="10dp"
         android:textSize="12dp"
