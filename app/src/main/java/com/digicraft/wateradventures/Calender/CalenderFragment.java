@@ -61,7 +61,7 @@ public class CalenderFragment extends Fragment {
     Date date;
     CalendarView calenderView;
     ArrayList<SaleModel> salesModels;
-
+    TextView countTxt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,6 +70,7 @@ public class CalenderFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_calender, container, false);
         progressBar = root.findViewById(R.id.saleProgressBar);
         listView = root.findViewById(R.id.calender_detail_lv);
+        countTxt = root.findViewById(R.id.count);
 
         salesModels = new ArrayList<>();
         calenderView = root.findViewById(R.id.calenderView);
@@ -319,6 +320,7 @@ public class CalenderFragment extends Fragment {
 
     public void updateList(ArrayList<SaleModel> models) {
         progressBar.setVisibility(View.GONE);
+        countTxt.setText(models.size()+" Activities");
         CalenderDetail detail_adapter = new CalenderDetail(getActivity(), models);
         listView.setAdapter(detail_adapter);
     }
@@ -343,6 +345,7 @@ public class CalenderFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+
         updateList(filteredList);
     }
 
