@@ -13,6 +13,7 @@ import android.widget.CalendarView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.digicraft.wateradventures.Adapters.CalenderAdapter;
@@ -52,6 +53,7 @@ public class CalenderFragment extends Fragment {
         // Required empty public constructor
     }
 
+    TextView currentDate;
     ProgressBar progressBar;
     GridView gridView;
     ListView listView;
@@ -59,7 +61,6 @@ public class CalenderFragment extends Fragment {
     Date date;
     CalendarView calenderView;
     ArrayList<SaleModel> salesModels;
-
 
 
     @Override
@@ -72,45 +73,75 @@ public class CalenderFragment extends Fragment {
 
         salesModels = new ArrayList<>();
         calenderView = root.findViewById(R.id.calenderView);
+        currentDate = root.findViewById(R.id.currentDate);
 
-        calenderView.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
+        calenderView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 date = new Date(year, month, dayOfMonth);
-
-                String monthStr = String.valueOf(month+1);
+                String monthStr = String.valueOf(month + 1);
                 String dayStr = String.valueOf(dayOfMonth);
-
-                if (month+1 < 10)
-                {
-                    monthStr = "0"+String.valueOf(month+1);
+                if (month + 1 < 10) {
+                    monthStr = "0" + String.valueOf(month + 1);
                 }
-
-                if (dayOfMonth < 10)
-                {
-                    dayStr = "0"+String.valueOf(dayOfMonth);
+                if (dayOfMonth < 10) {
+                    dayStr = "0" + String.valueOf(dayOfMonth);
                 }
+                String d = year + "-" + monthStr + "-" + dayStr;
+                String displayStr = dayStr+" "+getMonthName(month)+" , "+year;
 
-              String d = year+"-"+monthStr+"-"+dayStr;
-
+                currentDate.setText(displayStr);
                 filterList(d);
-
             }
         });
 
         senddatatoserver();
 
 
-
         return root;
     }
 
+    public String getMonthName(int number)
+    {
+        ArrayList<String> months = new ArrayList<>();
+        months.add("January");
+        months.add("February");
+        months.add("March");
+        months.add("April");
+        months.add("May");
+        months.add("June");
+        months.add("July");
+        months.add("August");
+        months.add("September");
+        months.add("October");
+        months.add("November");
+        months.add("December");
+
+        String month = "";
+        month = months.get(number);
 
 
+          return month;
+    }
+
+    public String getDayName(int number)
+    {
+        ArrayList<String> days = new ArrayList<>();
+
+        days.add("Monday");
+        days.add("Tuesday");
+        days.add("Wednesday");
+        days.add("Thursday");
+        days.add("Friday");
+        days.add("Saturday");
+        days.add("Sunday");
+
+        String dayName = days.get(number);
+
+        return dayName;
+    }
 
     public void senddatatoserver() {
         JSONObject post_dict = new JSONObject();
-
-
         try {
             post_dict.put("email", "john.doe@codino.pl");
             post_dict.put("password", 1234);
@@ -125,8 +156,6 @@ public class CalenderFragment extends Fragment {
 
     public void getAllSales(String date) {
         JSONObject post_dict = new JSONObject();
-
-        // {"date":"2018-08-14","calendarView":"month"}
         try {
             post_dict.put("date", date);
             post_dict.put("calenderView", "month");
@@ -204,7 +233,8 @@ public class CalenderFragment extends Fragment {
                 String token = jsonObj.getString("token");
                 //showToast(token);
                 authToken = token;
-                getAllSales("2018-08-14");
+              //  showToast(getTodayDate());
+                getAllSales(getTodayDate());
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -212,7 +242,7 @@ public class CalenderFragment extends Fragment {
         }
     }
 
-    class getAllSalesTask extends  AsyncTask<String, String, String> {
+    class getAllSalesTask extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... params) {
@@ -274,7 +304,7 @@ public class CalenderFragment extends Fragment {
 
             try {
                 salesModels = SalesParser.getAllSalesParse(s);
-                updateList(salesModels);
+                filterList(getTodayDate());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -284,47 +314,44 @@ public class CalenderFragment extends Fragment {
     }
 
     public void showToast(String msg) {
-       Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    public void updateList(ArrayList<SaleModel> models)
-    {
+    public void updateList(ArrayList<SaleModel> models) {
         progressBar.setVisibility(View.GONE);
-        CalenderDetail detail_adapter = new CalenderDetail(getActivity() , models);
+        CalenderDetail detail_adapter = new CalenderDetail(getActivity(), models);
         listView.setAdapter(detail_adapter);
     }
 
-    public void filterList(String date)
-    {
+    public void filterList(String date) {
         ArrayList<SaleModel> filteredList = new ArrayList<>();
 
-        for (SaleModel model : salesModels)
-        {
-            String activityDate = model.activityTimeStart.substring(0,10);
-           // showToast(activityDate);
+        for (SaleModel model : salesModels) {
+            String activityDate = model.activityTimeStart.substring(0, 10);
+            // showToast(activityDate);
 
             SimpleDateFormat formatter;
 
-            try{
-
+            try {
                 formatter = new SimpleDateFormat("yyyy-MM-dd");
                 Date date1 = formatter.parse(date);
                 Date date2 = formatter.parse(activityDate);
-
-                if (date1.compareTo(date2) == 0)
-                {
+                if (date1.compareTo(date2) == 0) {
                     filteredList.add(model);
                 }
-
             } catch (java.text.ParseException e) {
                 e.printStackTrace();
             }
-
         }
-
         updateList(filteredList);
+    }
 
 
+    public String getTodayDate()
+    {
+        Date now = new Date();
+        String nowAsString = new SimpleDateFormat("yyyy-MM-dd").format(now);
+        return nowAsString;
     }
 
 
