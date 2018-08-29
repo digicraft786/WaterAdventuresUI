@@ -37,9 +37,13 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 import static android.content.ContentValues.TAG;
 
@@ -62,6 +66,8 @@ public class CalenderFragment extends Fragment {
     CalendarView calenderView;
     ArrayList<SaleModel> salesModels;
     TextView countTxt;
+
+    Date currentSelectedDate , alreadySelectedDate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,10 +94,25 @@ public class CalenderFragment extends Fragment {
                     dayStr = "0" + String.valueOf(dayOfMonth);
                 }
                 String d = year + "-" + monthStr + "-" + dayStr;
-                String displayStr = dayStr+" "+getMonthName(month)+" , "+year;
+                String displayStr = dayStr + " " + getMonthName(month) + " , " + year;
 
-                currentDate.setText(displayStr);
-                filterList(d);
+                try {
+                    currentSelectedDate = getDateInFormat(d);
+                    currentDate.setText(displayStr);
+                    if (checkBetweenDates(getNumberOfMonthsBetweenDates(alreadySelectedDate , currentSelectedDate)))
+                    {
+                        //Here we will check that date selected from calender is from another Month.
+                        getAllSales(d);
+                    }else {
+                        filterList(d);
+                    }
+                } catch (java.text.ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+
+
             }
         });
 
@@ -101,8 +122,7 @@ public class CalenderFragment extends Fragment {
         return root;
     }
 
-    public String getMonthName(int number)
-    {
+    public String getMonthName(int number) {
         ArrayList<String> months = new ArrayList<>();
         months.add("January");
         months.add("February");
@@ -121,11 +141,10 @@ public class CalenderFragment extends Fragment {
         month = months.get(number);
 
 
-          return month;
+        return month;
     }
 
-    public String getDayName(int number)
-    {
+    public String getDayName(int number) {
         ArrayList<String> days = new ArrayList<>();
 
         days.add("Monday");
@@ -234,7 +253,7 @@ public class CalenderFragment extends Fragment {
                 String token = jsonObj.getString("token");
                 //showToast(token);
                 authToken = token;
-              //  showToast(getTodayDate());
+                //  showToast(getTodayDate());
                 getAllSales(getTodayDate());
 
             } catch (JSONException e) {
@@ -308,6 +327,8 @@ public class CalenderFragment extends Fragment {
                 filterList(getTodayDate());
             } catch (JSONException e) {
                 e.printStackTrace();
+            } catch (java.text.ParseException e) {
+                e.printStackTrace();
             }
 
 
@@ -320,18 +341,19 @@ public class CalenderFragment extends Fragment {
 
     public void updateList(ArrayList<SaleModel> models) {
         progressBar.setVisibility(View.GONE);
-        countTxt.setText(models.size()+" Activities");
+        countTxt.setText(models.size() + " Activities");
         CalenderDetail detail_adapter = new CalenderDetail(getActivity(), models);
         listView.setAdapter(detail_adapter);
     }
 
-    public void filterList(String date) {
+    public void filterList(String date) throws java.text.ParseException {
         ArrayList<SaleModel> filteredList = new ArrayList<>();
 
         for (SaleModel model : salesModels) {
             String activityDate = model.activityTimeStart.substring(0, 10);
             // showToast(activityDate);
 
+            alreadySelectedDate = getDateInFormat(date);
             SimpleDateFormat formatter;
 
             try {
@@ -350,11 +372,40 @@ public class CalenderFragment extends Fragment {
     }
 
 
-    public String getTodayDate()
-    {
+    public String getTodayDate() {
         Date now = new Date();
         String nowAsString = new SimpleDateFormat("yyyy-MM-dd").format(now);
         return nowAsString;
+    }
+
+
+    public int getNumberOfMonthsBetweenDates(Date prevDate , Date currentDate) {
+        Calendar prevSelected = new GregorianCalendar();
+        Calendar currentSelected = new GregorianCalendar();
+
+        prevSelected.setTime(prevDate);
+        currentSelected.setTime(currentDate);
+
+        int monthsDiff = currentSelected.get(Calendar.MONTH)
+                - prevSelected.get(Calendar.MONTH);
+
+        return monthsDiff;
+    }
+
+    public boolean checkBetweenDates(int monthDiff) {
+        if (monthDiff == 0) {
+            return true;
+        } else if (monthDiff > 0 || monthDiff < 0) {
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    public Date getDateInFormat(String date) throws java.text.ParseException {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        Date result = format.parse(date);
+        return result;
     }
 
 
