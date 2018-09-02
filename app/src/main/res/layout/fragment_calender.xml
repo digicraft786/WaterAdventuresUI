@@ -3,8 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-
     tools:context="com.digicraft.wateradventures.Calender.CalenderFragment">
 
 
@@ -26,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_controls_black" />
+
     </RelativeLayout>
 
 

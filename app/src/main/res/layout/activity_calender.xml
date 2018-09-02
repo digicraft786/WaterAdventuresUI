@@ -13,13 +13,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+
+
     <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/nav_left_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-
+        app:itemIconTint="@color/grey"
+        app:itemTextColor="@color/grey"
+        app:headerLayout="@layout/nav_header_sales"
+        app:menu="@menu/activity_sales_main_drawer"
         />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="true"
+        />
+
 
 </android.support.v4.widget.DrawerLayout>

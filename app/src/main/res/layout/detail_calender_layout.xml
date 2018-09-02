@@ -24,12 +24,12 @@
         <TextView
             android:padding="10dp"
             android:layout_alignParentRight="true"
-
             android:id="@+id/count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </RelativeLayout>
+
     <ProgressBar
         style="?android:attr/progressBarStyleSmall"
         android:elevation="5dp"

@@ -67,24 +67,31 @@ public class CalenderFragment extends Fragment {
     ArrayList<SaleModel> salesModels;
     TextView countTxt;
 
-    Date currentSelectedDate , alreadySelectedDate;
+
+    String currentSelectedDate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_calender, container, false);
+
         progressBar = root.findViewById(R.id.saleProgressBar);
         listView = root.findViewById(R.id.calender_detail_lv);
-        countTxt = root.findViewById(R.id.count);
 
+        countTxt = root.findViewById(R.id.count);
         salesModels = new ArrayList<>();
         calenderView = root.findViewById(R.id.calenderView);
         currentDate = root.findViewById(R.id.currentDate);
 
+        currentDate.setText(getTodayDateLabel());
+        currentSelectedDate = getTodayDate();
+
         calenderView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+
                 date = new Date(year, month, dayOfMonth);
+
                 String monthStr = String.valueOf(month + 1);
                 String dayStr = String.valueOf(dayOfMonth);
                 if (month + 1 < 10) {
@@ -96,22 +103,10 @@ public class CalenderFragment extends Fragment {
                 String d = year + "-" + monthStr + "-" + dayStr;
                 String displayStr = dayStr + " " + getMonthName(month) + " , " + year;
 
-                try {
-                    currentSelectedDate = getDateInFormat(d);
-                    currentDate.setText(displayStr);
-                    if (checkBetweenDates(getNumberOfMonthsBetweenDates(alreadySelectedDate , currentSelectedDate)))
-                    {
-                        //Here we will check that date selected from calender is from another Month.
-                        getAllSales(d);
-                    }else {
-                        filterList(d);
-                    }
-                } catch (java.text.ParseException e) {
-                    e.printStackTrace();
-                }
+                currentDate.setText(displayStr);
+                getAllSales(d);
 
-
-
+                currentSelectedDate = d;
 
             }
         });
@@ -263,6 +258,15 @@ public class CalenderFragment extends Fragment {
     }
 
     class getAllSalesTask extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            countTxt.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
+            listView.setVisibility(View.INVISIBLE);
+
+        }
 
         @Override
         protected String doInBackground(String... params) {
@@ -322,16 +326,18 @@ public class CalenderFragment extends Fragment {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
+            countTxt.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
+            listView.setVisibility(View.VISIBLE);
+
             try {
                 salesModels = SalesParser.getAllSalesParse(s);
-                filterList(getTodayDate());
+                filterList(currentSelectedDate);
             } catch (JSONException e) {
                 e.printStackTrace();
             } catch (java.text.ParseException e) {
                 e.printStackTrace();
             }
-
-
         }
     }
 
@@ -353,7 +359,7 @@ public class CalenderFragment extends Fragment {
             String activityDate = model.activityTimeStart.substring(0, 10);
             // showToast(activityDate);
 
-            alreadySelectedDate = getDateInFormat(date);
+
             SimpleDateFormat formatter;
 
             try {
@@ -376,6 +382,13 @@ public class CalenderFragment extends Fragment {
         Date now = new Date();
         String nowAsString = new SimpleDateFormat("yyyy-MM-dd").format(now);
         return nowAsString;
+    }
+
+    public String getTodayDateLabel()
+    {
+        Date now = new Date();
+        String nowStringLabel = now.getDate()+" "+getMonthName(now.getMonth())+","+now.getYear();
+        return nowStringLabel;
     }
 
 
