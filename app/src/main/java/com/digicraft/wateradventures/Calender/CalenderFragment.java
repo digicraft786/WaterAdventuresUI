@@ -59,7 +59,6 @@ public class CalenderFragment extends Fragment {
 
     TextView currentDate;
     ProgressBar progressBar;
-    GridView gridView;
     ListView listView;
     String authToken;
     Date date;
@@ -107,12 +106,10 @@ public class CalenderFragment extends Fragment {
                 getAllSales(d);
 
                 currentSelectedDate = d;
-
             }
         });
 
         senddatatoserver();
-
 
         return root;
     }
@@ -138,7 +135,6 @@ public class CalenderFragment extends Fragment {
 
         return month;
     }
-
     public String getDayName(int number) {
         ArrayList<String> days = new ArrayList<>();
 
@@ -168,7 +164,6 @@ public class CalenderFragment extends Fragment {
             new getActivityTask().execute(String.valueOf(post_dict));
         }
     }
-
     public void getAllSales(String date) {
         JSONObject post_dict = new JSONObject();
         try {
@@ -182,7 +177,6 @@ public class CalenderFragment extends Fragment {
             new getAllSalesTask().execute(String.valueOf(post_dict));
         }
     }
-
 
     class getActivityTask extends AsyncTask<String, String, String> {
 
@@ -256,7 +250,6 @@ public class CalenderFragment extends Fragment {
             }
         }
     }
-
     class getAllSalesTask extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
@@ -351,7 +344,6 @@ public class CalenderFragment extends Fragment {
         CalenderDetail detail_adapter = new CalenderDetail(getActivity(), models);
         listView.setAdapter(detail_adapter);
     }
-
     public void filterList(String date) throws java.text.ParseException {
         ArrayList<SaleModel> filteredList = new ArrayList<>();
 
@@ -377,20 +369,16 @@ public class CalenderFragment extends Fragment {
         updateList(filteredList);
     }
 
-
     public String getTodayDate() {
         Date now = new Date();
         String nowAsString = new SimpleDateFormat("yyyy-MM-dd").format(now);
         return nowAsString;
     }
-
-    public String getTodayDateLabel()
-    {
+    public String getTodayDateLabel() {
         Date now = new Date();
         String nowStringLabel = now.getDate()+" "+getMonthName(now.getMonth())+","+now.getYear();
         return nowStringLabel;
     }
-
 
     public int getNumberOfMonthsBetweenDates(Date prevDate , Date currentDate) {
         Calendar prevSelected = new GregorianCalendar();
@@ -404,7 +392,6 @@ public class CalenderFragment extends Fragment {
 
         return monthsDiff;
     }
-
     public boolean checkBetweenDates(int monthDiff) {
         if (monthDiff == 0) {
             return true;
@@ -414,7 +401,6 @@ public class CalenderFragment extends Fragment {
             return false;
         }
     }
-
     public Date getDateInFormat(String date) throws java.text.ParseException {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         Date result = format.parse(date);
