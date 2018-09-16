@@ -2,66 +2,46 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.digicraft.wateradventures">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".Misc.LoginActivity"
             android:theme="@style/LoginAppTheme"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
-
-
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".Misc.ForgotPasswordActivity"
             android:theme="@style/LoginAppTheme"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".Sales.SalesMainActivity"
             android:label="@string/title_activity_sales_main"
             android:theme="@style/MyMaterialTheme.Base"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".MenuActivity"
             android:theme="@style/LoginAppTheme"
-            android:windowSoftInputMode="stateHidden">
-
-        </activity>
-
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".Sales.SummaryActivity"
             android:label="@string/title_activity_summary"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden" >
-
-        </activity>
-
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".Sales.ReservationConfirmationActivity"
             android:label="@string/title_activity_reservation_confirmation"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-
-
-        </activity>
-
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".QR.ScanQrActivity"
             android:label="@string/title_activity_scan_qr"
-
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
             android:name=".Sales.SportDetailActivity"
@@ -70,23 +50,23 @@
         <activity
             android:name=".Calender.CalenderActivity"
             android:label="@string/title_activity_calender"
-            android:theme="@style/MyMaterialTheme.Base"
-            />
-
+            android:theme="@style/MyMaterialTheme.Base" />
         <activity
             android:name=".Misc.ResetPasswordActivity"
             android:theme="@style/LoginAppTheme" />
-
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/LoginAppTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
+        <activity
+            android:name=".StoreCredit.StoreCreditActivity"
+            android:label="@string/title_activity_store_credit"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -4,18 +4,36 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_sale"
             android:icon="@drawable/ic_nav_cart"
             android:title="Make a Sale" />
+
         <item
             android:id="@+id/nav_qr"
             android:icon="@drawable/ic_reserved"
             android:title="Find a Reservation" />
+
         <item
             android:id="@+id/nav_calendar"
             android:icon="@drawable/ic_calendar"
             android:title="Go to Calendar" />
+
+        <item
+            android:id="@+id/nav_massive_cancelation"
+            android:icon="@drawable/ic_reservation"
+            android:title="Massive Cancelation" />
+
+        <item
+            android:id="@+id/nav_tour_cancelation"
+            android:icon="@drawable/ic_calendar"
+            android:title="Tour Cancelation" />
+
+        <item
+            android:id="@+id/nav_store_credit"
+            android:icon="@drawable/ic_nav_cart"
+            android:title="Store Credit" />
 
     </group>
 

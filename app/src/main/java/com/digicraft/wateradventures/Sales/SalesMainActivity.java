@@ -28,6 +28,7 @@ import com.digicraft.wateradventures.Fragments.SearchFragment;
 import com.digicraft.wateradventures.Fragments.SearchResultFragment;
 import com.digicraft.wateradventures.QR.ScanQrActivity;
 import com.digicraft.wateradventures.R;
+import com.digicraft.wateradventures.StoreCredit.StoreCreditActivity;
 import com.digicraft.wateradventures.Util;
 
 import java.util.ArrayList;
@@ -152,6 +153,8 @@ public class SalesMainActivity extends AppCompatActivity
             }
         } else if (id == R.id.nav_calendar) {
             startActivity(new Intent(this, CalenderActivity.class));
+        }else if (id == R.id.nav_store_credit) {
+            startActivity(new Intent(this, StoreCreditActivity.class));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

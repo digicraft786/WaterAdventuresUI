@@ -38,6 +38,7 @@ public class MenuActivity extends AppCompatActivity {
         }
 
 
+
 // else if (btnId == R.id.btn4) {
 //            startActivity(new Intent(this, SummaryActivity.class));
 //        } else if (btnId == R.id.btn5) {
