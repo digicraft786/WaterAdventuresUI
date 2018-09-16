@@ -29,6 +29,5 @@ public class StoreCreditActivity extends AppCompatActivity {
 
         CreditAdapter adapter = new CreditAdapter(this);
         creditListView.setAdapter(adapter);
-
-        }
+    }
 }
