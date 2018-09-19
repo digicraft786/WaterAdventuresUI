@@ -15,4 +15,5 @@
     <string name="title_activity_sport_detail">SportDetailActivity</string>
     <string name="title_activity_calender">CalenderActivity</string>
     <string name="title_activity_store_credit">StoreCreditActivity</string>
+    <string name="title_activity_modify_reservation">ModifyReservationActivity</string>
 </resources>

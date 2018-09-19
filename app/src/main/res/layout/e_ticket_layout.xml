@@ -247,6 +247,8 @@
                 android:layout_weight="0.4"
                 android:background="@drawable/background_round_btn"
 
+                android:id="@+id/modifyReservation"
+
                 android:text="Modify Reservation"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"

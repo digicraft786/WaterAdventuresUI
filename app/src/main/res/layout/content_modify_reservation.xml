@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ModifyReservation.ModifyReservationActivity"
+    tools:showIn="@layout/activity_modify_reservation">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="0.9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+    <include layout="@layout/modify_selection_layout"/>
+
+    <TextView
+        android:textStyle="bold"
+        android:padding="3dp"
+        android:textSize="20dp"
+        android:text="Choose the participant it will applied to:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/participant_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="0.07"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <Button
+            android:textColor="#FFFFFF"
+            android:text="Cancel"
+            android:backgroundTint="@color/red"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="40dp" />
+
+        <Button
+            android:textColor="#FFFFFF"
+            android:text="Continue"
+            android:backgroundTint="@android:color/holo_green_dark"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="40dp" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

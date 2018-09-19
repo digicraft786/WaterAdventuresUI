@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="90dp">
+
+    <RelativeLayout
+        android:padding="8dp"
+        android:background="#A5A5A5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_alignParentLeft="true"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="What Do you want to do?"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/label"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="#FFFFFF"
+            android:text="Reschedule"
+            android:layout_weight="0.6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:backgroundTint="@color/red"
+            android:textColor="#FFFFFF"
+            android:text="Cancel"
+            android:layout_weight="0.4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

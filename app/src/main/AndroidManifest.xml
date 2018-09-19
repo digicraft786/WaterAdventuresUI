@@ -16,7 +16,7 @@
         <activity
             android:name=".Misc.LoginActivity"
             android:theme="@style/LoginAppTheme"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Misc.ForgotPasswordActivity"
             android:theme="@style/LoginAppTheme"
@@ -29,16 +29,16 @@
         <activity
             android:name=".MenuActivity"
             android:theme="@style/LoginAppTheme"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Sales.SummaryActivity"
             android:label="@string/title_activity_summary"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Sales.ReservationConfirmationActivity"
             android:label="@string/title_activity_reservation_confirmation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".QR.ScanQrActivity"
             android:label="@string/title_activity_scan_qr"
@@ -66,6 +66,10 @@
         <activity
             android:name=".StoreCredit.StoreCreditActivity"
             android:label="@string/title_activity_store_credit"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ModifyReservation.ModifyReservationActivity"
+            android:label="@string/title_activity_modify_reservation"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
