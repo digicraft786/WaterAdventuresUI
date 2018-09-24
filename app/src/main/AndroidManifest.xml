@@ -70,6 +70,10 @@
         <activity
             android:name=".ModifyReservation.ModifyReservationActivity"
             android:label="@string/title_activity_modify_reservation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MassiveCancelation.MassiveCancelationActivity"
+            android:label="@string/title_activity_massive_cancelation"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

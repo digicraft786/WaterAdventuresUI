@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Jet Ski"
+        android:layout_weight="0.15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="12:00 PM"
+        android:layout_weight="0.2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="30 mins"
+        android:layout_weight="0.2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="3"
+        android:layout_weight="0.15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="4"
+        android:layout_weight="0.15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

@@ -26,6 +26,7 @@ import com.digicraft.wateradventures.Calender.CalenderActivity;
 import com.digicraft.wateradventures.Fragments.SalesOpener;
 import com.digicraft.wateradventures.Fragments.SearchFragment;
 import com.digicraft.wateradventures.Fragments.SearchResultFragment;
+import com.digicraft.wateradventures.MassiveCancelation.MassiveCancelationActivity;
 import com.digicraft.wateradventures.QR.ScanQrActivity;
 import com.digicraft.wateradventures.R;
 import com.digicraft.wateradventures.StoreCredit.StoreCreditActivity;
@@ -155,6 +156,9 @@ public class SalesMainActivity extends AppCompatActivity
             startActivity(new Intent(this, CalenderActivity.class));
         }else if (id == R.id.nav_store_credit) {
             startActivity(new Intent(this, StoreCreditActivity.class));
+        }else if (id == R.id.nav_massive_cancelation)
+        {
+            startActivity(new Intent(this, MassiveCancelationActivity.class));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
