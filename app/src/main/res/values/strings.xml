@@ -17,4 +17,5 @@
     <string name="title_activity_store_credit">StoreCreditActivity</string>
     <string name="title_activity_modify_reservation">ModifyReservationActivity</string>
     <string name="title_activity_massive_cancelation">MassiveCancelationActivity</string>
+    <string name="title_activity_extra_ordinary">ExtraOrdinaryActivity</string>
 </resources>

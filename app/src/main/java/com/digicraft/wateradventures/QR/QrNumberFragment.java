@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.digicraft.wateradventures.Adapters.ExtraOrdinaryAdapter;
+import com.digicraft.wateradventures.ExtraOrdCancellation.ExtraOrdinaryActivity;
 import com.digicraft.wateradventures.ModifyReservation.ModifyReservationActivity;
 import com.digicraft.wateradventures.R;
 import com.digicraft.wateradventures.Sales.SalesMainActivity;
@@ -47,7 +49,7 @@ public class QrNumberFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity() , " Modify Reservation Clicked" , Toast.LENGTH_SHORT).show();
                 //Here we will gp to new Modify Reservation activity.
-                startActivity(new Intent(v.getContext() , ModifyReservationActivity.class));
+                startActivity(new Intent(v.getContext() , ExtraOrdinaryActivity.class));
             }
         });
 

@@ -74,6 +74,10 @@
         <activity
             android:name=".MassiveCancelation.MassiveCancelationActivity"
             android:label="@string/title_activity_massive_cancelation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ExtraOrdCancellation.ExtraOrdinaryActivity"
+            android:label="@string/title_activity_extra_ordinary"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
