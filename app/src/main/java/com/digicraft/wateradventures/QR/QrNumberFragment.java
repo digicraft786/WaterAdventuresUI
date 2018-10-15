@@ -49,7 +49,7 @@ public class QrNumberFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity() , " Modify Reservation Clicked" , Toast.LENGTH_SHORT).show();
                 //Here we will gp to new Modify Reservation activity.
-                startActivity(new Intent(v.getContext() , ExtraOrdinaryActivity.class));
+                startActivity(new Intent(v.getContext() , ModifyReservationActivity.class));
             }
         });
 

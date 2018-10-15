@@ -333,18 +333,16 @@ public class CalenderFragment extends Fragment {
             }
         }
     }
-
     public void showToast(String msg) {
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
-
     public void updateList(ArrayList<SaleModel> models) {
         progressBar.setVisibility(View.GONE);
         countTxt.setText(models.size() + " Activities");
         CalenderDetail detail_adapter = new CalenderDetail(getActivity(), models);
         listView.setAdapter(detail_adapter);
     }
-    public void filterList(String date) throws java.text.ParseException {
+    public void filterList(String date) {
         ArrayList<SaleModel> filteredList = new ArrayList<>();
 
         for (SaleModel model : salesModels) {
@@ -368,7 +366,6 @@ public class CalenderFragment extends Fragment {
 
         updateList(filteredList);
     }
-
     public String getTodayDate() {
         Date now = new Date();
         String nowAsString = new SimpleDateFormat("yyyy-MM-dd").format(now);
@@ -379,7 +376,6 @@ public class CalenderFragment extends Fragment {
         String nowStringLabel = now.getDate()+" "+getMonthName(now.getMonth())+","+now.getYear();
         return nowStringLabel;
     }
-
     public int getNumberOfMonthsBetweenDates(Date prevDate , Date currentDate) {
         Calendar prevSelected = new GregorianCalendar();
         Calendar currentSelected = new GregorianCalendar();

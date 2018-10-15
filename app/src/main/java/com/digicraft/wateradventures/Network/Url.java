@@ -5,6 +5,7 @@ package com.digicraft.wateradventures.Network;
  */
 
 public class Url {
-  public static String LOGIN_AS_ADMIN = "http://52.91.239.204:8080/wa/authentication/login";
+  public static String LOGIN_AS_ADMIN = "http://52.91.239.204:8080//wa/authentication/login";
   public static String GET_ALL_SALES = "http://52.91.239.204:8080/wa/dashboard/calendar/getAllSales";
+  public static String FIND_ALL_RESERVATION = "http://52.91.239.204:8080/wa/dashboard/calendar/findAllForModReservation";
 }

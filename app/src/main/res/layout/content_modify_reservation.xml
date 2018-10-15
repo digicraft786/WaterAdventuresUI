@@ -3,62 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ModifyReservation.ModifyReservationActivity"
     tools:showIn="@layout/activity_modify_reservation">
 
 
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="0.9"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:orientation="vertical">
 
-    <include layout="@layout/modify_selection_layout"/>
+        <include layout="@layout/modify_selection_layout" />
 
-    <TextView
-        android:textStyle="bold"
-        android:padding="3dp"
-        android:textSize="20dp"
-        android:text="Choose the participant it will applied to:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="8dp"
+            android:text="Choose the participants it will applied to:"
+            android:textSize="15dp" />
 
-    <ListView
-        android:id="@+id/participant_lv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
-
-
+        <ListView
+            android:id="@+id/participant_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="0.07"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <Button
-            android:textColor="#FFFFFF"
+            android:id="@+id/modify_reservation_cancel"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/cancel_round_btn"
             android:text="Cancel"
-            android:backgroundTint="@color/red"
-            android:layout_weight="0.5"
-            android:layout_width="0dp"
-            android:layout_height="40dp" />
+            android:textColor="#FFFFFF" />
 
         <Button
-            android:textColor="#FFFFFF"
-            android:text="Continue"
-            android:backgroundTint="@android:color/holo_green_dark"
-            android:layout_weight="0.5"
+            android:id="@+id/modify_reservation_save"
+
             android:layout_width="0dp"
-            android:layout_height="40dp" />
-
-
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/save_round_btn"
+            android:text="Save"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 

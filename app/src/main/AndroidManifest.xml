@@ -78,6 +78,10 @@
         <activity
             android:name=".ExtraOrdCancellation.ExtraOrdinaryActivity"
             android:label="@string/title_activity_extra_ordinary"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ModifyReservation.ResheduleReservationActivity"
+            android:label="@string/title_activity_reshedule_reservation"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

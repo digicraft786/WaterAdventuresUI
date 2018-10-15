@@ -18,4 +18,5 @@
     <string name="title_activity_modify_reservation">ModifyReservationActivity</string>
     <string name="title_activity_massive_cancelation">MassiveCancelationActivity</string>
     <string name="title_activity_extra_ordinary">ExtraOrdinaryActivity</string>
+    <string name="title_activity_reshedule_reservation">ResheduleReservationActivity</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.digicraft.wateradventures.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,12 +46,45 @@ public class ParticipantAdapter extends BaseAdapter {
 
         final View convertView;
         if (view == null) {
-            convertView = inflater.inflate(R.layout.modify_participant_name , null);
+            convertView = inflater.inflate(R.layout.reshedule_item_layout , null);
         } else {
             convertView = view;
         }
 
+        TextView name = convertView.findViewById(R.id.reshedule_name);
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeDialog(v.getContext());
+            }
+        });
 
         return convertView;
     }
+
+    public void makeDialog(Context context)
+    {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View formElementsView = inflater.inflate(R.layout.reshedule_dialog_layout, null, false);
+
+        new AlertDialog.Builder(context)
+                .setView(formElementsView)
+                .setPositiveButton("Confirm",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                dialog.cancel();
+                            }
+
+                        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .show();
+
+    }
+
 }
