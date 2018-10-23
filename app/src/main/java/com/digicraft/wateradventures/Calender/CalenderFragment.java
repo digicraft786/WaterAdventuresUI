@@ -328,8 +328,6 @@ public class CalenderFragment extends Fragment {
                 filterList(currentSelectedDate);
             } catch (JSONException e) {
                 e.printStackTrace();
-            } catch (java.text.ParseException e) {
-                e.printStackTrace();
             }
         }
     }

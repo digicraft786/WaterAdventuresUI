@@ -15,15 +15,16 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.digicraft.wateradventures.Adapters.ParticipantAdapter;
+
+import com.digicraft.wateradventures.Network.MyApplication;
 import com.digicraft.wateradventures.Network.Url;
 import com.digicraft.wateradventures.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,18 +34,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class ModifyReservationActivity extends AppCompatActivity {
 
     ListView listView;
-    Button save , cancel;
+    Button save, cancel;
     String authToken;
-    Button scheduleBtn , cancelBtn;
+    Button scheduleBtn, cancelBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +57,12 @@ public class ModifyReservationActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        authenticateUser();
+
+        try {
+            getAllReservation();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         listView = findViewById(R.id.participant_lv);
 
         save = findViewById(R.id.modify_reservation_save);
@@ -68,7 +77,7 @@ public class ModifyReservationActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext() , ResheduleReservationActivity.class));
+                startActivity(new Intent(v.getContext(), ResheduleReservationActivity.class));
             }
         });
 
@@ -85,23 +94,6 @@ public class ModifyReservationActivity extends AppCompatActivity {
         }
         if (post_dict.length() > 0) {
             new getActivityTask().execute(String.valueOf(post_dict));
-        }
-    }
-
-    public void getAllReservations() {
-        JSONObject post_dict = new JSONObject();
-        try {
-            post_dict.put("date", "john.doe@codino.pl");
-            post_dict.put("calenderView", "2018-10-05 18:30:0");
-            post_dict.put("type", 2);
-            post_dict.put("activity", "2");
-            post_dict.put("idSale", 321);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        if (post_dict.length() > 0) {
-            new getAllReservationsTask().execute(String.valueOf(post_dict));
         }
     }
 
@@ -175,7 +167,7 @@ public class ModifyReservationActivity extends AppCompatActivity {
                 String token = jsonObj.getString("token");
                 authToken = token;
 
-             getAllReservations();
+                // getAllReservations();
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -183,133 +175,53 @@ public class ModifyReservationActivity extends AppCompatActivity {
         }
     }
 
+    public void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 
-    public void getAllReservationsVolley(String token)
-    {
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest postRequest = new StringRequest(Request.Method.POST, Url.FIND_ALL_RESERVATION,
-                new Response.Listener<String>()
-                {
+
+    public void getAllReservation() throws JSONException {
+
+        JSONObject postparams = new JSONObject();
+
+        postparams.put("date", "2018-10-15 12:30:0");
+        postparams.put("calendarView", "2018-10-15 13:0:0");
+        postparams.put("type", "2");
+        postparams.put("activity", "46");
+        postparams.put("idSale", "354");
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                Url.FIND_ALL_RESERVATION, postparams,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
-                        // response
-                        Log.d("Response", response);
+                    public void onResponse(JSONObject response) {
+
+                        showToast(response.toString());
+                        Log.d("Result", response.toString());
+
                     }
                 },
-                new Response.ErrorListener()
-                {
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
+                        //Failure Callback
+                        showToast("Request Fail");
                     }
-                }
-        ) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("date", "Alif");
-                params.put("calenderView", "2018-10-05 18:30:00");
-                params.put("type", "2");
-                params.put("activity", "2");
-                params.put("idSale", "321");
-                return params;
-            }
+                }) {
 
             @Override
-            public Map<String, String> getHeaders() {
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("Content-Type", "application/json;charset=UTF-8");
-                params.put("WA-AUTH-TOKEN", authToken);
-                return params;
+            public Map getHeaders() {
+                HashMap headers = new HashMap();
+                headers.put("Content-Type", "application/json");
+                headers.put("WA-AUTH-TOKEN",
+                        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huLmRvZUBjb2Rpbm8ucGwiLCJleHAiOjE1Mzk3OTMxOTJ9.-6dZ9oZEwbq4pZS3z4pDP1TLqPaSJGJOFqha14630nzjjQZR44-0j3eiR6Edh0qeSd4MzuXNvIwxRFsiEhIPGA");
+                return headers;
             }
+
         };
 
-        queue.add(postRequest);
+        MyApplication.getInstance().addToRequestQueue(jsonObjReq, "headerRequest");
     }
 
-
-
-
-    class getAllReservationsTask extends AsyncTask<String, String, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            String JsonResponse = null;
-            String JsonDATA = params[0];
-            HttpURLConnection urlConnection = null;
-            BufferedReader reader = null;
-            try {
-                URL url = new URL(Url.FIND_ALL_RESERVATION);
-
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setDoOutput(true);
-                urlConnection.setRequestMethod("POST");
-
-                urlConnection.setRequestProperty("Content-Type", "application/json");
-                urlConnection.setRequestProperty("WA-AUTH-TOKEN" , authToken);
-
-                Writer writer = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
-                writer.write(JsonDATA);
-                writer.close();
-
-                InputStream inputStream = urlConnection.getInputStream();
-                StringBuffer buffer = new StringBuffer();
-
-                if (inputStream == null) {
-                    return null;
-                }
-                reader = new BufferedReader(new InputStreamReader(inputStream));
-                String inputLine;
-                while ((inputLine = reader.readLine()) != null)
-                    buffer.append(inputLine + "\n");
-                if (buffer.length() == 0) {
-                    return null;
-                }
-
-                JsonResponse = buffer.toString();
-                Log.i("Response", JsonResponse);
-
-                try {
-                    return JsonResponse;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return null;
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (urlConnection != null) {
-                    urlConnection.disconnect();
-                }
-                if (reader != null) {
-                    try {
-                        reader.close();
-                    } catch (final IOException e) {
-                        Log.e("ERROR", "Error closing stream", e);
-                    }
-                }
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            try {
-                JSONObject jsonObj = new JSONObject(s);
-
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void showToast(String msg)
-    {
-        Toast.makeText(this , msg , Toast.LENGTH_SHORT).show();
-    }
 
 }
